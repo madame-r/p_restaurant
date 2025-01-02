@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Menu Item{% endblock %}
+
+{% block body %}
+
+<main id="main-edit-menu-item">
+
+    <h1>Edit Menu Item</h1>
+
+    <!-- Start the form -->
+    {{ form_start(form) }}
+
+    <!-- Display Current Image (if exists) -->
+    <div class="form-group">
+        <label for="menu_item_image">Current Menu Item Image:</label>
+        {% if menu_item.imageName %}
+            <!-- Show current image -->
+            <img src="{{ asset('upload/menu_item_img/' ~ menu_item.imageName) }}" alt="Cover Image" style="max-width: 200px;">
+        {% else %}
+            <p>No menu item image available</p>
+        {% endif %}
+    </div>
+
+    <!-- Upload New Image -->
+    <div class="form-group">
+
+        {{ form_widget(form.imageFile, {'attr': {'class': 'form-control-file'}}) }}
+        {{ form_errors(form.imageFile) }}
+    </div>
+
+    <!-- Menu Item Name -->
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Enter menu item name'}}) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Enter a short description'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    <!-- Price -->
+    <div class="form-group">
+        {{ form_label(form.price) }}
+        {{ form_widget(form.price, {'attr': {'class': 'form-control', 'placeholder': 'Enter price'}}) }}
+        {{ form_errors(form.price) }}
+    </div>
+
+    <!-- Stock Quantity -->
+    <div class="form-group">
+        {{ form_label(form.stock_quantity) }}
+        {{ form_widget(form.stock_quantity, {'attr': {'class': 'form-control', 'placeholder': 'Enter stock quantity'}}) }}
+        {{ form_errors(form.stock_quantity) }}
+    </div>
+
+    <!-- Category -->
+    <div class="form-group">
+        {{ form_label(form.menuCategories) }}
+        {{ form_widget(form.menuCategories, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.menuCategories) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.created_at, 'Created At') }}
+        {{ form_widget(form.created_at, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.created_at) }}
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-outline-primary">{{ button_label|default('Update') }}</button>
+    </div>
+
+    {{ form_end(form) }}
+
+    <!-- Navigation Links -->
+    <nav id="edit-menu-item-bottom">
+        <a href="{{ path('app_menu_items_index') }}">Back to list</a>
+            {{ include('menu_items/_delete_form.html.twig') }}
+    </nav>
+
+</main>
+
+{% endblock %}

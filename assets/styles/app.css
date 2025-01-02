@@ -1,3 +1,193 @@
-body {
-    background-color: skyblue;
+
+/* All Templates ******************************************* */
+
+
+#main-new-item,
+#main-show-menu-item,
+#main-edit-menu-item,
+#main-new-category,
+#main-show-category,
+#main-edit-category,
+#main-login,
+#main-register {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+
+
+#main-menu-item-index,
+#main-menu-categories-index {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+#main-new-item form,
+#main-edit-menu-item form,
+#main-new-category form, 
+#main-edit-category form,
+#main-show-menu-item table,
+#main-menu-item-index table,
+#main-menu-categories-index table,
+#main-show-category table {
+    width: 60vw;
+}
+
+
+/* Menu Item Templates ******************************************* */
+
+/* Show */
+
+#menu-item-img {
+    max-width: 20vw;
+}
+
+#show-menu-item-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 60vw;
+}
+
+
+
+/* Edit */
+
+
+#main-edit-menu-item div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+    margin: 20px 0;
+}
+
+#main-edit-menu-item form .vich-file {
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+}
+
+#main-edit-menu-item form .vich-file input {
+    width: 70%;
+}
+
+#main-edit-menu-item form .vich-file div {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+}
+
+#main-edit-menu-item form .vich-file div label {
+    width: 40%;
+}
+
+#main-edit-menu-item form .vich-file div input {
+    width: 5%;
+}
+
+
+#edit-menu-item-bottom {
+    display: flex;
+    align-items: center;
+    width: 60vw;
+}
+
+#edit-menu-item-bottom a,
+#edit-menu-item-bottom form {
+    width: 50%;
+}
+
+#edit-menu-item-bottom form {
+    text-align: right;
+}
+
+/* New */
+
+#button-new-item {
+    margin: 20px 0;
+}
+
+#main-new-item form .form-group {
+    margin: 20px 0;
+}
+
+
+/* Menu Category Templates ******************************************* */
+
+
+
+/* New */
+
+#button-new-category {
+    margin: 20px 0;
+}
+
+
+/* Show */
+
+#show-category-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+}
+
+
+/* Edit */
+
+#button-edit-category {
+    margin: 20px 0;
+}
+
+
+
+#edit-category-bottom {
+    display: flex;
+    align-items: center;
+    width: 60vw;
+}
+
+#edit-category-bottom a,
+#edit-category-bottomform {
+    width: 50%;
+}
+
+#edit-category-bottom form {
+    text-align: right;
+}
+
+
+
+
+/* Login Templates ******************************************* */
+
+#main-login form,
+#main-register form
+ {
+    width: 30vw;
+}
+
+
+#button-login,
+#button-register {
+    margin-top: 20px;
+}
+
+
+
+/* Register Templates ******************************************* */
+
+
+#main-register form div {
+
+    display: flex;
+    flex-direction: column;
 }

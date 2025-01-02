@@ -1,0 +1,20 @@
+
+
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.created_at, 'Created At') }}
+    {{ form_widget(form.created_at, {'attr': {'class': 'form-control'}}) }}
+    {{ form_errors(form.created_at) }}
+</div>
+
+
+<!-- Submit Button -->
+<button class="btn btn-primary" id="button-new-category">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

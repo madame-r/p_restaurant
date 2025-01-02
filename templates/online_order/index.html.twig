@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMOSUBI : Order Online</title>
+
+    {% block stylesheets %}
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="{{ asset('styles/03_mobile_online_order.css') }}" />
+    <link rel="stylesheet" href="{{ asset('styles/04_mq_online_order.css') }}" />
+
+    {% endblock %}
+
+
+    {% block javascripts %}
+
+    {% block importmap %}{{ importmap('script_online_order') }}{% endblock %}
+
+    {% endblock %}
+
+
+
+
+</head>
+
+<body>
+    {% block body %}
+
+
+    <header>
+
+
+
+        <button id="view-order">
+            <p>VIEW ORDER</p>
+            <div id="icon-order">
+                <i class="bi bi-bag"></i>
+                <div id="pill-number">
+                    <p id="counter"></p>
+                </div>
+            </div>
+        </button>
+
+
+
+
+
+        <div id="display-order">
+
+
+
+            <div id="order-total">
+                <p>Total Price: <span id="total-price">0.00 €</span></p>
+            </div>
+
+        </div>
+
+
+        <div id="header-img">
+            <h1>OMOSUBI • <span class="japanese">お結び</span></h1>
+            <p>JAPANESE FOOD</p>
+
+        </div>
+
+
+    </header>
+
+
+    <main>
+
+
+        <section id="menu-selectors">
+
+            <div id="icon-home"><a href={{path("app_home")}}><i class="bi bi-house"></i></a></div>
+
+            <div id="selectors-select">
+                <select name="" id="">
+                    <option value="">BENTO</option>
+                    <option value="">A LA CARTE</option>
+                    <option value="">OMUSUBI</option>
+                    <option value="">SANDWICH</option>
+                    <option value="">DESSERT</option>
+                </select>
+            </div>
+
+
+            <!-- MEDIA QUERIES  -->
+
+
+            <ul id="selectors-ul">
+                <li>BENTO</li>
+                <li>A LA CARTE</li>
+                <li>OMUSUBI</li>
+                <li>SANDWICH</li>
+                <li>DESSERT</li>
+            </ul>
+
+            <div id="search">
+                <form method="get" action="">
+                    <input type="text" placeholder="Search by name...">
+                    <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </section>
+
+
+
+
+        <section id="section-bento">
+            <h2>BENTO</h2>
+            <div class="all-items">
+
+
+
+                {% for one_item in menu_items %}
+                {% if one_item.menuCategories.name == 'Bento' %}
+
+
+                <div class="item-card">
+                    <div class="img-card"><img src="{{ asset('upload/menu_item_img/' ~ one_item.imageName) }}" alt="">
+                    </div>
+
+
+                    <div class="details-card">
+
+                        <h3>{{ one_item.name }}</h3>
+                        <p>{{ one_item.description }}</p>
+                        <p>{{ one_item.price }} €</p>
+
+
+
+                        <button class="button-add" data-item-id="{{ one_item.id }}"
+                            data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
+
+
+
+                    </div>
+
+
+                </div>
+
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+        </section>
+
+
+
+
+
+        <section id="section-alacarte">
+            <h2>A LA CARTE</h2>
+            <div class="all-items">
+
+
+
+                {% for one_item in menu_items %}
+                {% if one_item.menuCategories.name == 'A la carte' %}
+
+
+                <div class="item-card">
+                    <div class="img-card"><img src="{{ asset('upload/menu_item_img/' ~ one_item.imageName) }}" alt="">
+                    </div>
+
+
+                    <div class="details-card">
+
+                        <h3>{{ one_item.name }}</h3>
+                        <p>{{ one_item.description }}</p>
+                        <p>{{ one_item.price }} €</p>
+
+                        <button class="button-add" data-item-id="{{ one_item.id }}"
+                            data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
+
+                    </div>
+
+
+                </div>
+
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+        </section>
+
+
+
+
+
+        
+        <section id="section-omusubi">
+            <h2>OMUSUBI</h2>
+            <div class="all-items">
+
+
+
+                {% for one_item in menu_items %}
+                {% if one_item.menuCategories.name == 'Omusubi' %}
+
+
+                <div class="item-card">
+                    <div class="img-card"><img src="{{ asset('upload/menu_item_img/' ~ one_item.imageName) }}" alt="">
+                    </div>
+
+
+                    <div class="details-card">
+
+                        <h3>{{ one_item.name }}</h3>
+                        <p>{{ one_item.description }}</p>
+                        <p>{{ one_item.price }} €</p>
+
+                        <button class="button-add" data-item-id="{{ one_item.id }}"
+                            data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
+
+                    </div>
+
+
+                </div>
+
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+        </section>
+
+
+
+
+        
+        <section id="section-sandwich">
+            <h2>SANDWICH</h2>
+            <div class="all-items">
+
+
+
+                {% for one_item in menu_items %}
+                {% if one_item.menuCategories.name == 'Sandwich' %}
+
+
+                <div class="item-card">
+                    <div class="img-card"><img src="{{ asset('upload/menu_item_img/' ~ one_item.imageName) }}" alt="">
+                    </div>
+
+
+                    <div class="details-card">
+
+                        <h3>{{ one_item.name }}</h3>
+                        <p>{{ one_item.description }}</p>
+                        <p>{{ one_item.price }} €</p>
+
+                        <button class="button-add" data-item-id="{{ one_item.id }}"
+                            data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
+
+                    </div>
+
+
+                </div>
+
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+        </section>
+
+
+
+
+
+             
+        <section id="section-dessert">
+            <h2>DESSERT</h2>
+            <div class="all-items">
+
+
+
+                {% for one_item in menu_items %}
+                {% if one_item.menuCategories.name == 'Dessert' %}
+
+
+                <div class="item-card">
+                    <div class="img-card"><img src="{{ asset('upload/menu_item_img/' ~ one_item.imageName) }}" alt="">
+                    </div>
+
+
+                    <div class="details-card">
+
+                        <h3>{{ one_item.name }}</h3>
+                        <p>{{ one_item.description }}</p>
+                        <p>{{ one_item.price }} €</p>
+
+                        <button class="button-add" data-item-id="{{ one_item.id }}"
+                            data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
+
+                    </div>
+
+
+                </div>
+
+                {% endif %}
+                {% endfor %}
+
+
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+
+</body>

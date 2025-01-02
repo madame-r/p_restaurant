@@ -1,0 +1,367 @@
+/* FONT FACE ******************************************************* */
+
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Potta";
+    src: url(../font/PottaOne-Regular.ttf);
+}
+
+
+
+/*  RESET ******************************************************* */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+
+img,
+svg,
+input,
+video {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+
+
+
+
+
+/*  HEADER ******************************************************* */
+
+
+header {
+    position: relative;
+}
+
+
+
+/* Nav */
+
+#home-nav {
+    display: flex;
+    justify-content: flex-end;
+    height: 7vh;
+    padding: 10px;
+}
+
+
+#logo {
+    width: 10vw;
+}
+
+
+
+#icon-menu {
+    width: 10%;
+    font-size: 30px;
+    color: #cd6c59;
+}
+
+#icon-menu:hover {
+    cursor: pointer;
+}
+
+
+
+/* Nav Menu */
+
+#menu-top {
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    width: 100%;
+    height: 93vh;
+    background-color: white;
+    padding: 30px;
+    text-align: right;
+    display: none;
+    
+}
+
+#menu-top li {
+    height: 8vh;
+    list-style-type: none;
+}
+
+
+
+#menu-top .button-order {
+    width: 40vw;
+    height: 5vh;
+    background-color: #cd6c59;
+    color: white;
+    font-size: 18px;
+    border: 0;
+}
+
+#menu-top .button-order:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #cd6c59;
+    border: 1px solid #cd6c59;
+}
+
+
+#menu-top li a {
+    text-decoration: none;
+    color: #cd6c59;
+}
+
+
+#menu-top li a:hover {
+    cursor: pointer;
+    text-decoration: none;
+    color: #ddac72;
+}
+
+
+
+
+
+
+/* Header Img */
+
+#header-img {
+    background-image: url(../img/home_background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #cd6c59;
+}
+
+
+
+#header-img .japanese {
+    font-family: "Potta";
+    font-size: 40px;
+}
+
+#header-img p {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 10px;
+    color: #79827b;
+}
+
+
+
+/*  MAIN ******************************************************* */
+
+
+/* Section Order Online */
+
+#order-online button {
+    border: 0;
+    width: 100%;
+    background-color: #cd6c59;
+    color: white;
+    font-size: 18px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#order-online button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #cd6c59;
+    border: 1px solid #cd6c59;
+}
+
+#order-online a {
+    text-decoration: none;
+}
+
+
+
+
+/* Section Menu  */
+
+
+#menu h2,
+#location h2 {
+    color: #79827b;
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+#menu-display,
+.active[data-tab-content],
+[data-tab-content] {
+    display: none;
+}
+
+
+#mobile-menu {
+    width: 90vw;
+    justify-self: center;
+}
+
+
+#mobile-menu table {
+    width: 100%;
+}
+
+
+.sous-menu {
+    margin: 40px 0;
+}
+
+.sous-menu h3,
+.sous-menu h4,
+.sous-menu p {
+    margin-bottom: 20px;
+}
+
+.sous-menu h3 {
+    height: 3vh;
+    border-bottom: 1px solid #cd6c59;
+    color: #cd6c59;
+}
+
+.sous-menu h4,
+.sous-menu p,
+#opening-hours p {
+    color: #79827b;
+}
+
+
+
+/* Section Opening Hours */
+
+#opening-hours h2,
+#contact h2 {
+    color: #cd6c59;
+    text-align: center;
+}
+
+#opening-hours p {
+    width: 90vw;
+    justify-self: center;
+    margin: 40px 0;
+}
+
+
+
+
+/* Section Location */
+
+#location iframe {
+    margin: 40px 0;
+}
+
+
+
+/* Section Contact */
+
+#contact {
+    margin: 20px 0;
+}
+
+#contact .left {
+    height: 15vh;
+    color: #79827b;
+    margin: 20px 0;
+}
+
+#contact .left div {
+    display: flex;
+    padding-left: 10px;
+}
+
+#contact .all .left div {
+    display: flex;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    align-items: flex-start;
+    font-weight: 200;
+}
+
+
+#contact .all .right {
+    width: 90vw;
+    justify-self: center;
+}
+
+#contact .all .right form input {
+
+    height: 5vh;
+    font-size: 13px;
+    padding-left: 20px;
+    border: solid 1px #79827b;
+    margin: 10px 0;
+}
+
+#input-message {
+    margin: 10px 0;
+}
+
+#input-submit {
+    display: flex;
+    
+}
+
+
+
+#contact-button {
+    border: 0;
+    background-color: #cd6c59;
+    color: white;
+    width: 30%;
+    height: 4vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#contact-button:hover {
+    background-color: white;
+    color: #cd6c59;
+    border: 1px solid #cd6c59;
+    cursor: pointer;
+}
+
+
+
+/* FOOTER ******************************************************* */
+
+footer {
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #cd6c59;
+    background-color: #e4eee6;
+}
+
+#social-medias {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
+}
+
+footer p {
+    margin-top: 20px;
+}

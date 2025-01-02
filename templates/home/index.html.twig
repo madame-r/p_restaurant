@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMOSUBI : Welcome !</title>
+
+    {% block stylesheets %}
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+        integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="{{ asset('styles/01_mobile_home.css') }}" />
+    <link rel="stylesheet" href="{{ asset('styles/02_mq_home.css') }}" />
+
+
+    {% endblock %}
+
+
+    {% block javascripts %}
+
+    {% block importmap %}{{ importmap('script_home') }}{% endblock %}
+
+    {% endblock %}
+
+
+
+
+</head>
+
+<body>
+    {% block body %}
+
+    <div id="parent-home">
+
+        <header>
+
+            <nav id="home-nav">
+
+                <div id="icon-menu"><i class="bi bi-list"></i></div>
+
+            </nav>
+
+            <ul id="menu-top">
+                <li>
+                    <a href={{path("app_online_order")}} target="_blank"><button class="button-order">Order Online</button></a>
+                </li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#opening-hours">Opening Hours</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+
+
+            </ul>
+
+            <div id="header-img">
+                <h1>OMOSUBI • <span class="japanese">お結び</span></h1>
+                <p>JAPANESE FOOD</p>
+
+            </div>
+
+        </header>
+
+        <main>
+
+            <section id="order-online">
+
+                <a href={{path("app_online_order")}} target="_blank"><button class="button-order">ORDER ONLINE</button></a>
+
+
+            </section>
+            <section id="menu">
+
+                <h2>MENU</h2>
+
+
+                <div id="mobile-menu">
+
+                    <div class="sous-menu">
+                        <h3>BENTO</h3>
+
+                        {% for one_item in menu_items %}
+                        {% if one_item.menuCategories.name == 'Bento' %}
+
+                        <h4>{{ one_item.name }}</h4>
+                        <p>{{ one_item.description }}</p>
+                        <p >{{ one_item.price }} €</p>
+                        {% endif %}
+                        {% endfor %}
+
+
+                    </div>
+
+                    
+
+                    <div class="sous-menu">
+                        <h3>A LA CARTE</h3>
+
+                        {% for one_item in menu_items %}
+                        {% if one_item.menuCategories.name == 'A la carte' %}
+
+                        <h4>{{ one_item.name }}</h4>
+                        <p>{{ one_item.description }}</p>
+                        <p >{{ one_item.price }} €</p>
+                        {% endif %}
+                        {% endfor %}
+
+
+                    </div>
+
+
+                    <div class="sous-menu">
+                        <h3>OMUSUBI</h3>
+
+                        {% for one_item in menu_items %}
+                        {% if one_item.menuCategories.name == 'Omusubi' %}
+
+                        <h4>{{ one_item.name }}</h4>
+                        <p>{{ one_item.description }}</p>
+                        <p >{{ one_item.price }} €</p>
+                        {% endif %}
+                        {% endfor %}
+
+
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+                <!-- MEDIA QUERIES -->
+
+
+
+
+
+                <ul id="menu-display">
+                    <li data-tab-selector="#bento" class="selector active">BENTO</li>
+                    <li data-tab-selector="#alacarte" class="selector">A LA CARTE</li>
+                    <li data-tab-selector="#omusubi" class="selector">OMUSUBI</li>
+                    <li data-tab-selector="#sandwich" class="selector">SANDWICH</li>
+                    <li data-tab-selector="#dessert" class="selector">DESSERT</li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div id="bento" data-tab-content class="active">
+
+
+                        <table>
+                            {% for one_item in menu_items %}
+                            {% if one_item.menuCategories.name == 'Bento' %}
+                            <tr class="item-name">
+                                <td>{{ one_item.name }}</td>
+                            </tr>
+                            <tr class="item-details">
+                                <td class="item-description">{{ one_item.description }}</td>
+                                <td>{{ one_item.price }} €</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+
+                        </table>
+
+
+
+                    </div>
+
+
+                    <div id="alacarte" data-tab-content>
+
+
+                        <table>
+                            {% for one_item in menu_items %}
+                            {% if one_item.menuCategories.name == 'A la carte' %}
+                            <tr class="item-name">
+                                <td>{{ one_item.name }}</td>
+                            </tr>
+                            <tr class="item-details">
+                                <td class="item-description">{{ one_item.description }}</td>
+                                <td>{{ one_item.price }} €</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+
+                        </table>
+
+                    </div>
+
+
+
+                    <div id="omusubi" data-tab-content>
+
+
+                        <table>
+                            {% for one_item in menu_items %}
+                            {% if one_item.menuCategories.name == 'Omusubi' %}
+                            <tr class="item-name">
+                                <td>{{ one_item.name }}</td>
+                            </tr>
+                            <tr class="item-details">
+                                <td class="item-description">{{ one_item.description }}</td>
+                                <td>{{ one_item.price }} €</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+
+                        </table>
+
+
+                    </div>
+
+
+                    <div id="sandwich" data-tab-content>
+
+
+                        <table>
+                            {% for one_item in menu_items %}
+                            {% if one_item.menuCategories.name == 'Sandwich' %}
+                            <tr class="item-name">
+                                <td>{{ one_item.name }}</td>
+                            </tr>
+                            <tr class="item-details">
+                                <td class="item-description">{{ one_item.description }}</td>
+                                <td>{{ one_item.price }} €</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+
+                        </table>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div id="dessert" data-tab-content>
+
+
+                    <table>
+                        {% for one_item in menu_items %}
+                        {% if one_item.menuCategories.name == 'Dessert' %}
+                        <tr class="item-name">
+                            <td>{{ one_item.name }}</td>
+                        </tr>
+                        <tr class="item-details">
+                            <td class="item-description">{{ one_item.description }}</td>
+                            <td>{{ one_item.price }} €</td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+
+                    </table>
+
+                </div>
+            </section>
+
+
+            <section id="opening-hours">
+
+                <h2>OPENING HOURS</h2>
+                <p>Mardi - Jeudi : 11:00 - 18:00</p>
+                    <p>Vendredi - Samedi : 11:00 - 19:00</p>
+                    <p>Dimanche - Lundi : Fermé</p>
+
+            </section>
+            <section id="location">
+
+                <h2>WHERE TO FIND US</h2>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13695493.204259114!2d126.55346393523627!3d33.06630473386578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34674e0fd77f192f%3A0xf54275d47c665244!2sJapon!5e0!3m2!1sfr!2sfr!4v1735750890373!5m2!1sfr!2sfr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </section>
+            <section id="contact">
+
+                <h2>CONTACT</h2>
+                
+    
+                <div class="all">
+                    <div class="left">
+                        <div>
+                            <div><i class="bi bi-geo-alt-fill"></i></div>
+                            <p>Japan</p>
+                        </div>
+                        <div>
+                            <div><i class="bi bi-telephone-fill"></i></div>
+                            <p>Phone: +00 000000</p>
+                        </div>
+                        <div>
+                            <div><i class="bi bi-envelope-fill"></i></div>
+                            <p> Email: contact@omusubi.com</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <form action="">
+                            <div id="name-email">
+                                <div><input type="text" placeholder="Name" /></div>
+                                <div><input type="email" placeholder="Email" /></div>
+                            </div>
+    
+    
+                            <div><input type="text" placeholder="Message" id="input-message" /></div>
+                            <button type="submit" id="contact-button">SEND</button>
+                           
+                        </form>
+                    </div>
+                </div>
+               
+
+
+            </section>
+        </main>
+
+
+        <footer>
+
+            <div id="social-medias">
+                <div><i class="bi bi-facebook"></i></div>
+                <div><i class="bi bi-instagram"></i></div>
+                <div><i class="bi bi-snapchat"></i></div>
+                <div><i class="bi bi-pinterest"></i></div>
+                <div><i class="bi bi-twitter-x"></i></div>
+                <div><i class="bi bi-linkedin"></i></div>
+            </div>
+            <p>Powered by Madame R.</p>
+        </footer>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+/* FONT FACE ****************************************************** */
+
+
+@font-face {
+    font-family: "Montserrat";
+    src: url(../font/Montserrat-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Potta";
+    src: url(../font/PottaOne-Regular.ttf);
+}
+
+
+
+/*  RESET ******************************************************* */
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+
+img,
+svg,
+input,
+video {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+
+
+
+
+
+
+/*  HEADER ******************************************************* */
+
+
+header {
+    position: relative;
+}
+
+header a {
+    text-decoration: none;
+}
+
+/* View Order */
+
+#view-order {
+    border: 0;
+    width: 100%;
+    background-color: #cd6c59;
+    color: white;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#view-order:hover {
+    border: 1px solid #cd6c59;
+    background-color: white;
+    color: #cd6c59;
+    cursor: pointer;
+}
+
+#view-order p {
+    margin-right: 20px;
+    font-size: 17px;
+}
+
+#icon-order {
+    position: relative;
+}
+
+#icon-order i {
+    font-size: 20px;
+}
+
+
+#pill-number {
+    position: absolute;
+    top: -40%;
+    left: 65%;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: #e4eee6;
+    color: #cd6c59;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+
+#pill-number p {
+    margin: 0;
+}
+
+
+#display-order {
+    display: none;
+    flex-direction: column-reverse;
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100vw;
+    background-color: white;
+}
+
+#order-total {
+    margin-top: auto;
+}
+
+
+/* Header Img */
+
+#header-img {
+    background-image: url(../img/home_background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #cd6c59;
+}
+
+
+
+#header-img .japanese {
+    font-family: "Potta";
+    font-size: 40px;
+}
+
+#header-img p {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 10px;
+    color: #79827b;
+}
+
+
+
+/*  MAIN ******************************************************* */
+
+
+/* Section menu Selectors */
+
+
+
+#menu-selectors {
+    display: flex;
+    width: 90vw;
+    height: 5vh;
+    justify-self: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#selectors-ul,
+#search {
+    display: none;
+}
+
+
+#icon-home a {
+    font-size: 30px;
+    color: #cd6c59;
+}
+
+
+#selectors-select select {
+    width: 70vw;
+    height: 3vh;
+    color: #cd6c59;
+    border: 1px solid #cd6c59;
+}
+
+
+/* All Sections Food */
+
+section h2 {
+    margin: 20px 0;
+    width: 90vw;
+    justify-self: center;
+    color: #79827b;
+}
+
+
+
+/* Section Bento */
+
+
+.item-card {
+    margin: 20px 0;
+    width: 90vw;
+    justify-self: center;
+}
+
+
+.img-card {
+    height: 20vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-card img {
+    width: 100%;
+
+}

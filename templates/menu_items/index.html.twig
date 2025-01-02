@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MenuItems index{% endblock %}
+
+{% block body %}
+
+<main id="main-menu-item-index">
+
+
+    <h1>Menu Items</h1>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock_quantity</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for menu_item in menu_items %}
+            <tr>
+                <td>{{ menu_item.id }}</td>
+                <td>{{ menu_item.name }}</td>
+                <td>{{ menu_item.description }}</td>
+                <td>{{ menu_item.menuCategories.name }}</td>
+                <td>{{ menu_item.price }}</td>
+                <td>{{ menu_item.stockQuantity }}</td>
+                <td>
+                    <a href="{{ path('app_menu_items_show', {'id': menu_item.id}) }}">show</a>
+                    <a href="{{ path('app_menu_items_edit', {'id': menu_item.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <a href="{{ path('app_menu_items_new') }}" class="btn btn-outline-primary">Create new item</a>
+</main>
+
+{% endblock %}

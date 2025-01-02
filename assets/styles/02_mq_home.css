@@ -1,0 +1,190 @@
+/* MEDIA QUERIES ******************************************************* */
+
+
+@media screen and (min-width:1280px) {
+
+
+
+
+
+
+/*  HEADER ******************************************************* */
+
+
+
+
+/* Nav */
+
+
+#icon-menu {
+    display: none;
+}
+
+
+/* Nav Menu */
+
+#menu-top {
+    display: flex;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 7vh;
+    width: 60vw;
+    justify-content: space-evenly;
+}
+
+.button-order {
+    display: none;
+}
+
+/*  MAIN ******************************************************* */
+
+
+
+/* Section Order Online */
+
+#order-online p {
+    width: 30%;
+    background-color: #cd6c59;
+    color: white;
+    font-size: 18px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    margin-top: 40px;
+}
+
+#order-online p:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #cd6c59;
+    border: 1px solid #cd6c59;
+}
+
+
+
+
+    
+/* Section Menu  */
+
+
+#menu h2 {
+    margin-top: 40px;
+}
+
+
+#mobile-menu {
+    display: none;
+}
+
+
+#menu-display {
+    display: flex;
+    margin-top: 60px;
+    height: 5vh;
+    width: 60vw;
+    justify-self: center;
+}
+
+.selector {
+    list-style-type: none;
+    width: 50%;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #79827b;
+    font-weight: 600;
+}
+
+.selector:hover {
+    cursor: pointer;
+}
+
+
+.selector.active {
+    background-color: #e4eee6;
+}
+
+
+[data-tab-content] {
+    height: 40vh;
+}
+
+
+.active[data-tab-content] {
+    display: block;
+    background-color: #e4eee6;
+    width: 60vw;
+    justify-self: center;
+
+}
+
+
+
+#bento,
+#alacarte,
+#omusubi,
+#sandwich,
+#dessert {
+   padding-top: 20px;
+   color: #79827b;
+}
+
+#bento table,
+#alacarte table,
+#omusubi table,
+#sandwich table,
+#dessert table {
+    width: 50vw;
+    justify-self: center;
+}
+
+.item-name {
+    font-weight: 600;
+}
+
+.item-details {
+    height: 10vh;
+    color: #cd6c59;
+}
+
+.item-description {
+    width: 80%;
+    font-size: 15px;
+}
+
+
+
+/* Section Opening Hours */
+
+#opening-hours {
+    margin: 40px 0;
+}
+
+#opening-hours p {
+    width: 60vw;
+    text-align: center;
+}
+
+
+/* Section Contact */
+
+#contact .all {
+    width: 60vw;
+    justify-self: center;
+    display: flex;
+    margin: 80px 0;
+}
+
+
+#contact .all .left,
+#contact .all .right {
+    width: 50%;
+}
+
+
+
+}

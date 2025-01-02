@@ -16,6 +16,14 @@ return [
         'path' => './assets/app.js',
         'entrypoint' => true,
     ],
+    'script_home' => [
+        'path' => './assets/script_home.js',
+        'entrypoint' => true,
+    ],
+    'script_online_order' => [
+        'path' => './assets/script_online_order.js',
+        'entrypoint' => true,
+    ],
     '@hotwired/stimulus' => [
         'version' => '3.2.2',
     ],
