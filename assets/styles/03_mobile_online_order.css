@@ -213,7 +213,7 @@ header a {
 #menu-selectors {
     display: flex;
     width: 90vw;
-    height: 5vh;
+    height: 10vh;
     justify-self: center;
     justify-content: space-between;
     align-items: center;
@@ -232,9 +232,10 @@ header a {
 
 #selectors-select select {
     width: 70vw;
-    height: 3vh;
+    height: 5vh;
     color: #cd6c59;
     border: 1px solid #cd6c59;
+    font-size: 15px;
 }
 
 
