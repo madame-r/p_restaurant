@@ -6,22 +6,59 @@
     /*  MAIN ******************************************************* */
 
 
-/* Section menu Selectors */
+    /* Section menu Selectors */
+
+    #menu-selectors {
+        justify-content: flex-start;
+        height: 10vh;
+    }
+
+    #selectors-select {
+        display: none;
+    }
+
+    #icon-home {
+        margin-right: 20px;
+    }
+
+    #selectors-ul {
+        display: flex;
+        list-style-type: none;
+        width: 60vw;
+        justify-content: space-evenly;
+    }
+
+    #selectors-ul a {
+        color: #cd6c59;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    #selectors-ul a:hover,
+    #icon-home i:hover {
+        color: #ddac72;
+        cursor: pointer;
+    }
 
 
+    /* Item Card */
 
-#selectors-select {
-    display: none;
-}
+    .all-items {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+    }
 
-#selectors-ul,
-#search {
-    display: block;
-}
+    .item-card {
+        width: 80%;
+    }
 
+    .details-card {
+        width: 80%;
+    }
 
-
-
-
+    .button-add {
+        width: 10vw;
+        height: 10vh;
+    }
 
 }

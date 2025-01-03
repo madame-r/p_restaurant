@@ -223,6 +223,7 @@ header {
 
 .sous-menu {
     margin: 40px 0;
+    border-bottom: 1px solid #e0f3e4;
 }
 
 .sous-menu h3,
@@ -233,7 +234,7 @@ header {
 
 .sous-menu h3 {
     height: 3vh;
-    border-bottom: 1px solid #cd6c59;
+   
     color: #cd6c59;
 }
 

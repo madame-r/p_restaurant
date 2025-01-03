@@ -5,7 +5,6 @@ const updateTotalPrice = () => {
     const displayOrder = document.getElementById('display-order');
     const orderTotal = document.getElementById('total-price');
 
-    // Check if displayOrder and orderTotal are valid
     if (!displayOrder || !orderTotal) {
         console.error('Error: Missing displayOrder or orderTotal elements');
         return;
@@ -13,7 +12,6 @@ const updateTotalPrice = () => {
 
     let total = 0;
 
-    // Loop through all recap items and calculate the total price
     const allItems = displayOrder.querySelectorAll('.recap-item');
     allItems.forEach(item => {
         const quantity = parseInt(item.querySelector('.item-quantity').textContent, 10);
@@ -21,17 +19,12 @@ const updateTotalPrice = () => {
         total += quantity * itemPrice;
     });
 
-    // Update the total price on the page
     orderTotal.textContent = `${total.toFixed(2)} €`;
 };
 
 // Function to add an item to the recap
-const addToRecap = (itemName, itemPrice, itemId) => {
+const addToRecap = (itemName, itemPrice, itemId, stockElem) => {
     const displayOrder = document.getElementById('display-order');
-    const orderTotal = document.getElementById('total-price');
-    let totalPrice = 0;
-
-    // Check if the item already exists in the recap
     const existingItem = displayOrder.querySelector(`[data-item-id="${itemId}"]`);
 
     if (existingItem) {
@@ -43,10 +36,8 @@ const addToRecap = (itemName, itemPrice, itemId) => {
         const totalPriceItem = (quantity * itemPrice).toFixed(2);
         totalPriceElem.textContent = `${totalPriceItem} €`;
 
-        // Ensure updateTotalPrice is being called here
-        updateTotalPrice();  // <-- This should be triggered here
+        updateTotalPrice();
     } else {
-        // Add a new item to the recap
         const newItem = document.createElement('div');
         newItem.classList.add('recap-item');
         newItem.setAttribute('data-item-id', itemId);
@@ -59,14 +50,39 @@ const addToRecap = (itemName, itemPrice, itemId) => {
             <span class="item-total-price">${itemPrice.toFixed(2)} €</span>
         `;
 
-        displayOrder.appendChild(newItem);
+        // Attach event listeners for +/- buttons
+        newItem.querySelector('.increase-quantity').addEventListener('click', () => {
+            const quantityElem = newItem.querySelector('.item-quantity');
+            let quantity = parseInt(quantityElem.textContent, 10) + 1;
+            quantityElem.textContent = quantity;
 
-        // Ensure updateTotalPrice is being called here as well
-        updateTotalPrice();  // <-- This should also trigger updateTotalPrice
+            const totalPriceElem = newItem.querySelector('.item-total-price');
+            totalPriceElem.textContent = `${(quantity * itemPrice).toFixed(2)} €`;
+
+            updateTotalPrice();
+        });
+
+        newItem.querySelector('.decrease-quantity').addEventListener('click', () => {
+            const quantityElem = newItem.querySelector('.item-quantity');
+            let quantity = Math.max(parseInt(quantityElem.textContent, 10) - 1, 0);
+            quantityElem.textContent = quantity;
+
+            const totalPriceElem = newItem.querySelector('.item-total-price');
+            totalPriceElem.textContent = `${(quantity * itemPrice).toFixed(2)} €`;
+
+            if (quantity === 0) {
+                newItem.remove(); // Remove item if quantity is 0
+            }
+
+            updateTotalPrice();
+        });
+
+        displayOrder.appendChild(newItem);
+        updateTotalPrice();
     }
 };
 
-// Function to initialize the order display behavior
+// Initialize order display behavior
 const initOrderDisplay = () => {
     addButtons.forEach(button => {
         button.addEventListener('click', function () {
@@ -74,46 +90,33 @@ const initOrderDisplay = () => {
             const itemId = this.getAttribute('data-item-id');
             const itemName = itemCard.querySelector('h3').textContent;
 
-            // Log the entire details-card for debugging
+            // Extract price
             const detailsCard = itemCard.querySelector('.details-card');
+            const priceTextElement = detailsCard.querySelectorAll('p')[1]; // Assuming price is the second <p>
+            const cleanedPriceText = priceTextElement.textContent.replace(' €', '').trim();
+            const itemPrice = parseFloat(cleanedPriceText);
 
-            // Extract all <p> elements from the details-card and log them
-            const allPElements = detailsCard.querySelectorAll('p');
-            allPElements.forEach((p, index) => {
-                console.log(`p[${index}]:`, p.textContent);
-            });
+            if (isNaN(itemPrice)) {
+                console.error("Error: Price could not be parsed.");
+                return;
+            }
 
-            // Price is now in the second <p> element (index 1)
-            const priceTextElement = allPElements[1]; // 2nd <p> element for price
-            if (priceTextElement) {
-                const priceText = priceTextElement.textContent;
+            // Decrement stock and update UI
+            let stock = parseInt(this.getAttribute('data-stock'), 10);
+            if (stock > 0) {
+                stock--;
+                this.setAttribute('data-stock', stock);
 
-                // Clean the price text by removing ' €' and trimming any extra spaces
-                const cleanedPriceText = priceText.replace(' €', '').trim();
-
-                // Parse the cleaned price string into a number
-                const itemPrice = parseFloat(cleanedPriceText);
-
-                // If parsing fails, log an error and return
-                if (isNaN(itemPrice)) {
-                    console.error("Error: Price could not be parsed.");
-                    return;
+                // Update stock display in DOM
+                const stockDisplay = detailsCard.querySelector('p:nth-child(4)'); // Assuming stock is the 4th <p>
+                if (stockDisplay) {
+                    stockDisplay.textContent = `Stock: ${stock}`;
                 }
 
-                // Retrieve stock quantity directly from the "Add" button's data-stock attribute
-                let stock = parseInt(this.getAttribute('data-stock'), 10);
-
-                if (stock > 0) {
-                    stock--;  // Decrement stock
-                    this.setAttribute('data-stock', stock);  // Update the stock in the button's data attribute
-
-                    // Add item to recap
-                    addToRecap(itemName, itemPrice, itemId);
-                } else {
-                    alert('Out of stock!');
-                }
+                // Add to recap
+                addToRecap(itemName, itemPrice, itemId, stockDisplay);
             } else {
-                console.error('Price element not found.');
+                alert('Out of stock!');
             }
         });
     });

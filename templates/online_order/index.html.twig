@@ -96,19 +96,13 @@
 
 
             <ul id="selectors-ul">
-                <li>BENTO</li>
-                <li>A LA CARTE</li>
-                <li>OMUSUBI</li>
-                <li>SANDWICH</li>
-                <li>DESSERT</li>
+                <li><a href="#section-bento">BENTO</a></li>
+                <li><a href="#section-alacarte">A LA CARTE</a></li>
+                <li><a href="#section-omusubi">OMUSUBI</a></li>
+                <li><a href="#section-sandwich">SANDWICH</a></li>
+                <li><a href="#section-dessert">DESSERT</a></li>
             </ul>
 
-            <div id="search">
-                <form method="get" action="">
-                    <input type="text" placeholder="Search by name...">
-                    <button type="submit" id="icon-search"><i class="bi bi-search"></i></button>
-                </form>
-            </div>
         </section>
 
 
@@ -135,7 +129,7 @@
                         <p>{{ one_item.description }}</p>
                         <p>{{ one_item.price }} €</p>
 
-
+                        <p>Stock : {{ one_item.getStockQuantity() }} </p>
 
                         <button class="button-add" data-item-id="{{ one_item.id }}"
                             data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
@@ -149,6 +143,9 @@
 
                 {% endif %}
                 {% endfor %}
+
+
+                
 
 
             </div>
@@ -179,6 +176,8 @@
                         <p>{{ one_item.description }}</p>
                         <p>{{ one_item.price }} €</p>
 
+                        <p>Stock : {{ one_item.getStockQuantity() }} </p>
+
                         <button class="button-add" data-item-id="{{ one_item.id }}"
                             data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
 
@@ -198,7 +197,7 @@
 
 
 
-        
+
         <section id="section-omusubi">
             <h2>OMUSUBI</h2>
             <div class="all-items">
@@ -220,6 +219,8 @@
                         <p>{{ one_item.description }}</p>
                         <p>{{ one_item.price }} €</p>
 
+                        <p>Stock : {{ one_item.getStockQuantity() }} </p>
+
                         <button class="button-add" data-item-id="{{ one_item.id }}"
                             data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
 
@@ -238,7 +239,7 @@
 
 
 
-        
+
         <section id="section-sandwich">
             <h2>SANDWICH</h2>
             <div class="all-items">
@@ -260,6 +261,8 @@
                         <p>{{ one_item.description }}</p>
                         <p>{{ one_item.price }} €</p>
 
+                        <p>Stock : {{ one_item.getStockQuantity() }} </p>
+
                         <button class="button-add" data-item-id="{{ one_item.id }}"
                             data-stock="{{ one_item.getStockQuantity() }}">ADD</button>
 
@@ -279,7 +282,7 @@
 
 
 
-             
+
         <section id="section-dessert">
             <h2>DESSERT</h2>
             <div class="all-items">
@@ -300,6 +303,8 @@
                         <h3>{{ one_item.name }}</h3>
                         <p>{{ one_item.description }}</p>
                         <p>{{ one_item.price }} €</p>
+
+                        <p>Stock : {{ one_item.getStockQuantity() }} </p>
 
                         <button class="button-add" data-item-id="{{ one_item.id }}"
                             data-stock="{{ one_item.getStockQuantity() }}">ADD</button>

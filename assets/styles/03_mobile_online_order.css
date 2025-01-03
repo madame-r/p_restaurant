@@ -49,6 +49,8 @@ header a {
     text-decoration: none;
 }
 
+
+
 /* View Order */
 
 #view-order {
@@ -104,6 +106,8 @@ header a {
 }
 
 
+/* Display Order */
+
 #display-order {
     display: none;
     flex-direction: column-reverse;
@@ -112,11 +116,60 @@ header a {
     left: 0;
     width: 100vw;
     background-color: white;
+    padding: 10px;
 }
+
+.recap-item {
+    height: 8vh;
+    display: flex;
+    align-items: center;
+}
+
+.item-name {
+    width: 40%;
+}
+
+.decrease-quantity,
+.increase-quantity {
+    width: 10%;
+    height: 5vh;
+    background-color: #cd6c59;
+    color: white;
+    border: 0;
+}
+
+
+.item-quantity {
+    width: 15%;
+    text-align: center;
+}
+
+
+.item-total-price {
+    width: 20%;
+    text-align: center;
+}
+
+
 
 #order-total {
     margin-top: auto;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #c7d8ca;
+    color: #79827b;
 }
+
+
+#total-price {
+    margin-left: 10vw;
+   
+}
+
+
+
+
 
 
 /* Header Img */
@@ -166,8 +219,7 @@ header a {
     align-items: center;
 }
 
-#selectors-ul,
-#search {
+#selectors-ul {
     display: none;
 }
 
@@ -197,18 +249,21 @@ section h2 {
 
 
 
-/* Section Bento */
+/* Item Card */
 
 
 .item-card {
     margin: 20px 0;
     width: 90vw;
     justify-self: center;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #c7d8ca;
 }
 
 
 .img-card {
-    height: 20vh;
+    height: 40vh;
     width: 100%;
     overflow: hidden;
 }
@@ -216,4 +271,38 @@ section h2 {
 .img-card img {
     width: 100%;
 
+}
+
+.details-card {
+    width: 80vw;
+    justify-self: center;
+    margin: 20px 0;
+}
+
+.details-card h3 {
+    color: #cd6c59;
+    margin-bottom: 10px;
+}
+
+.details-card p {
+    margin-bottom: 10px;
+    color: #79827b;
+}
+
+.button-add {
+    width: 15vw;
+    height: 5vh;
+    background-color: #cd6c59;
+    color: white;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-add:hover {
+    border: 1px solid #cd6c59;
+    background-color: white;
+    color: #cd6c59;
+    cursor: pointer;
 }
