@@ -14,7 +14,10 @@ This web development project is an online platform for restaurants, enabling cus
 
 ## Screenshots
 
+Home 
 ![App Screenshot](./00_readme/screenshot_01.png)
+
+Online Order 
 ![App Screenshot](./00_readme/screenshot_02.png)
 
 
@@ -31,7 +34,7 @@ If you import my sql file 'restaurant' located in the 00_readme folder
 
 
 
-## Code solving
+## Code tricks
 
 In the Online Order template, I couldn't display the property 'stock_quantity' by calling it directly. This didn't work :
 
