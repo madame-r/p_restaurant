@@ -15,6 +15,7 @@ This web development project is an online platform for restaurants, enabling cus
 ## Screenshots
 
 ![App Screenshot](./00_readme/screenshot_01.png)
+![App Screenshot](./00_readme/screenshot_02.png)
 
 
 
@@ -41,7 +42,7 @@ In the Online Order template, I couldn't display the property 'stock_quantity' b
 ```
 
 
-If you encounter the same kind of issue, try to replace it by its function instead.
+If you encounter the same kind of issue, try to replace the property by its function instead.
 
 ```html
 <p>Stock : {{ one_item.getStockQuantity() }} </p>
@@ -56,8 +57,8 @@ If you encounter the same kind of issue, try to replace it by its function inste
 - User Account
 
 
-## 🚀 About Me
-Hi everyone, I'm Madame R. a web developer from France. 
+## 🍞 About Me
+Hi everyone, I'm Madame R. a Web Developer from France. 
 Currently in training, I'm a database enthusiast.
 Enjoy your stay, have a look at my other repositories and let's get in touch if you wish to work with me.
 
