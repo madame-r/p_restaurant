@@ -14,10 +14,14 @@ This web development project is an online platform for restaurants, enabling cus
 
 ## Screenshots
 
-Home 
+Admin Dashboard 
+![App Screenshot](./00_readme/screenshot_03.png)
+
+
+Home Page
 ![App Screenshot](./00_readme/screenshot_01.png)
 
-Online Order 
+Online Order Page
 ![App Screenshot](./00_readme/screenshot_02.png)
 
 
@@ -28,13 +32,16 @@ Online Order
 If you import my sql file 'restaurant' located in the 00_readme folder
 
 - You can go to yourlocalhost/login
-- And use admin@admin.com / adminadmin
-- Create menu informations in this order : new menu category, new menu item
+- And use the account admin@admin.com / adminadmin
+- Create menu informations in this order : menu categories, menu items
+
+Otherwise, create your own account at :
+- yourlocalhost/register
 
 
 
 
-## Code tricks
+## Code Tricks
 
 In the Online Order template, I couldn't display the property 'stock_quantity' by calling it directly. This didn't work :
 
