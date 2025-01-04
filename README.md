@@ -30,7 +30,7 @@ If you import my sql file 'restaurant' located in the 00_readme folder
 
 
 
-## Problem solving
+## Code solving
 
 In the Online Order template, I couldn't display the property 'stock_quantity' by calling it directly. This didn't work :
 
